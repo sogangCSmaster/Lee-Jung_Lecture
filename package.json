@@ -1,0 +1,23 @@
+{
+  "name": "lee-jung_lecture",
+  "version": "1.0.0",
+  "description": "study",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sogangCSmaster/Lee-Jung_Lecture.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sogangCSmaster/Lee-Jung_Lecture/issues"
+  },
+  "homepage": "https://github.com/sogangCSmaster/Lee-Jung_Lecture#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "pug": "^2.0.3"
+  }
+}
