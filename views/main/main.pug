@@ -3,7 +3,7 @@ html
     head
         title hello world
     
-    body
+    body(style="text-align: center")
         div
             h1= "hello " + name
             h2 hello #{name}
@@ -12,3 +12,13 @@ html
 
             p
                 a(href="/admin") go to admin page
+        
+        div(style="text-align: center")
+            form(action="/" method="POST")
+                br
+                input(type="text" name="email" placeholder="input email")
+                br
+                br
+                input(type="text" name="password" placeholder="input password")
+                br
+                button(type="submit") Login

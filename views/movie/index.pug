@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        title hello world
+    
+    body(style="text-align: center")
+        div
+            form(action="/movie" method="POST")
+                input(type="text" name="title" placeholder="title")
+                br
+                input(type="text" name="description" placeholder="description")
+                br
+                select(name="category" placeholder="category")
+                    option(value="action") action
+                    option(value="romantic") romantic
+                    option(value="comedy") comedy
+                br
+                input(type="text" name="thumbnail" placeholder="thumbnail")
+                br
+                button(type="submit") Add Movie
+        div
+            each result in results
+                h4= result.title
+                img(src=result.thumbnail width="30%")
+                p= result.description
