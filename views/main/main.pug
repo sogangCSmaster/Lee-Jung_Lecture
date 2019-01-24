@@ -1,24 +1,5 @@
-doctype html
-html
-    head
-        title hello world
-    
-    body(style="text-align: center")
-        div
-            h1= "hello " + name
-            h2 hello #{name}
-            p
-                strong  this is example
+extends ../component/layout
 
-            p
-                a(href="/admin") go to admin page
-        
-        div(style="text-align: center")
-            form(action="/" method="POST")
-                br
-                input(type="text" name="email" placeholder="input email")
-                br
-                br
-                input(type="text" name="password" placeholder="input password")
-                br
-                button(type="submit") Login
+
+block content
+    button.btn.btn-primary= "Button"
