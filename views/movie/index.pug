@@ -23,3 +23,7 @@ html
                 h4= result.title
                 img(src=result.thumbnail width="30%")
                 p= result.description
+                form(action="/movie" method="POST")
+                    input(type="hidden" name="_method" value="DELETE")
+                    input(type="hidden" name="id" value=result.id)
+                    button.btn.btn-danger(type="submit") 삭제

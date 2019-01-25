@@ -19,4 +19,16 @@ router.post("/movie", (req, res) => {
     });
 })
 
+router.delete("/movie", (req, res) => {
+    // var { id } = req.body;
+    var id = req.body.id;
+    var sql = `DELETE FROM movie WHERE id=?`;
+    db.query(sql, [id], (err, rows, fields) => {
+        if(err){
+            console.log(err);
+        }
+        res.redirect("/movie");
+    });
+})
+
 module.exports = router;
