@@ -25,15 +25,17 @@ html
                 .form-group
                     button.btn.btn-primary(type="submit") Add Movie
         .container
-            each result in results
-                .card.col-lg-4
-                    img.card-img-top(src=result.thumbnail)
-                    .card-body
-                        h5.card-title= result.title
-                        p.card-text= result.description
-                        ul.list-group.list-group-flush
-                            li.list-group-item= result.category
-                        form.card-body(action="/admin" method="POST")
-                            input(type="hidden" name="_method" value="DELETE")
-                            input(type="hidden" name="id" value=result.id)
-                            button.btn.btn-danger(type="submit") 삭제
+            .row
+                each result in results
+                    .col-lg-4
+                        .card.shadow-lg.bg-white.rounded
+                            img.card-img-top(src=result.thumbnail)
+                            .card-body
+                                h5.card-title= result.title
+                                p.card-text= result.description
+                                ul.list-group.list-group-flush
+                                    li.list-group-item= result.category
+                                form.card-body(action="/admin" method="POST")
+                                    input(type="hidden" name="_method" value="DELETE")
+                                    input(type="hidden" name="id" value=result.id)
+                                    button.btn.btn-danger(type="submit") 삭제
