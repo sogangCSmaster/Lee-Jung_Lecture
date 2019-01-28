@@ -15,5 +15,17 @@ router.route("/detail")
         })
 
     })
+    .post((req, res) => {
+        var category = req.body.category;
+        var id = req.body.id;
+        var sql = "SELECT * FROM movie WHERE category=? AND id!=? LIMIT 4";
+        db.query(sql, [category, id], (err, movies, fields) => {
+            if(err){
+                return res.send("error");
+            }
+            res.send({ movies });
+        })
+
+    })
 
 module.exports = router;

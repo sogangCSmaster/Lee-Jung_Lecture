@@ -17,5 +17,33 @@ html
                         button.btn.btn-primary.btn-sm.mt-5(type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample") 줄거리 보기
                         div(class="collapse" id="collapseExample")
                             div.card.card-body= movie.description
-        
-        
+            .row.mt-5#recommend
+        script(src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous")
+        script(type="text/javascript").
+            $(document).ready(function(){
+                var movie = !{JSON.stringify(movie)};
+                var category = movie.category;
+                var id = movie.id;
+                $.ajax({
+                    method: "POST",
+                    url: "/detail",
+                    data: {
+                        id: id,
+                        category: category
+                    }
+                }).done(function(res){
+                    var movies = res.movies;
+                    movies.forEach(function(movie){
+                        $("#recommend").append(`
+                            <div class="col-md-3">
+                                <div class="card shadow-lg bg-white rounded">
+                                    <a href="/detail?id=${movie.id}">
+                                        <img class="card-img-top" src="${movie.thumbnail}"/>
+                                    </a>
+                                </div>
+                            </div>
+                        `)
+                    })
+                    
+                })
+            })
