@@ -15,5 +15,18 @@ router.route("/")
 
         })
     })
+    .post((req, res) => {
+        var search = req.body.search;
+        search = "%" + search + "%";
+        var sql = "SELECT * FROM movie WHERE title LIKE ? OR description LIKE ?";
+        db.query(sql, [search, search], (err, movies, fields) => {
+            if(err){
+                console.log(err);
+                return res.send("sorry error~");
+            }
+
+            res.render('main/main', { movies });
+        })
+    })
 
 module.exports = router;

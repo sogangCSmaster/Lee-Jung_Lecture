@@ -51,8 +51,10 @@ app.set("views", "./views");
 
 const admin = require('./routes/admin/index');
 const main = require('./routes/main');
+const detail = require('./routes/detail');
 app.use(admin);
 app.use(main);
+app.use(detail);
 
 
 

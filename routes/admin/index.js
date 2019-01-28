@@ -10,7 +10,7 @@ router.get("/admin", (req, res) => {
     });
 })
 
-router.post("/movie", (req, res) => {
+router.post("/admin", (req, res) => {
     var { title, description, category, thumbnail } = req.body;
     var sql = "INSERT INTO movie (title, description, category, thumbnail) VALUES (?, ?, ?, ?)";
     db.query(sql, [title, description, category, thumbnail], (error, results, fields) => {
