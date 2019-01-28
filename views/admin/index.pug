@@ -1,0 +1,39 @@
+doctype html
+html
+    head
+        include ../component/head
+        title hello world
+    
+    body
+        .container
+            form(action="/movie" method="POST")
+                .form-group
+                    label(for="title") 영화 제목
+                    input.form-control(type="text" id="title" placeholder="Enter movie")
+                .form-group
+                    label(for="description") 영화 줄거리
+                    textarea.form-control(type="text" id="description" placeholder="Enter description" rows="8")
+                
+                .form-group
+                    select.form-control(name="category" placeholder="category")
+                        option(value="action") action
+                        option(value="romantic") romantic
+                        option(value="comedy") comedy
+                .form-group
+                    label(for="thumbnail") 썸네일
+                    input.form-control(type="text" id="thumbnail" placeholder="Enter thumbnail url")
+                .form-group
+                    button.btn.btn-primary(type="submit") Add Movie
+        .container
+            each result in results
+                .card.col-lg-4
+                    img.card-img-top(src=result.thumbnail)
+                    .card-body
+                        h5.card-title= result.title
+                        p.card-text= result.description
+                        ul.list-group.list-group-flush
+                            li.list-group-item= result.category
+                        form.card-body(action="/admin" method="POST")
+                            input(type="hidden" name="_method" value="DELETE")
+                            input(type="hidden" name="id" value=result.id)
+                            button.btn.btn-danger(type="submit") 삭제
