@@ -9,10 +9,10 @@ html
             form(action="/movie" method="POST")
                 .form-group
                     label(for="title") 영화 제목
-                    input.form-control(type="text" id="title" placeholder="Enter movie")
+                    input.form-control(type="text" id="title" placeholder="Enter movie" name="title")
                 .form-group
                     label(for="description") 영화 줄거리
-                    textarea.form-control(type="text" id="description" placeholder="Enter description" rows="8")
+                    textarea.form-control(type="text" id="description" placeholder="Enter description" rows="8" name="description")
                 
                 .form-group
                     select.form-control(name="category" placeholder="category")
@@ -21,7 +21,7 @@ html
                         option(value="comedy") comedy
                 .form-group
                     label(for="thumbnail") 썸네일
-                    input.form-control(type="text" id="thumbnail" placeholder="Enter thumbnail url")
+                    input.form-control(type="text" id="thumbnail" placeholder="Enter thumbnail url" name="thumbnail")
                 .form-group
                     button.btn.btn-primary(type="submit") Add Movie
         .container
