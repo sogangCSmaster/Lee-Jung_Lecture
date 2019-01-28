@@ -1,5 +1,26 @@
-extends ../component/layout
-
-
-block content
-    button.btn.btn-primary= "Button"
+doctype html
+html
+    head
+        include ../component/head
+        title hello world
+    
+    body
+        .container
+            form.mt-3.mb-3(action="/" method="POST")
+                .input-group
+                    input.form-control(type="text" id="title" placeholder="Search movie" name="search")
+                    .input-group-append
+                        button.btn.btn-outline-secondary(type="submit") 검색
+        .container
+            .row
+                each movie in movies
+                    .col-lg-4
+                        .card.shadow-lg.bg-white.rounded
+                            img.card-img-top(src=movie.thumbnail)
+                            .card-body
+                                h5.card-title= movie.title
+                                if movie.description.length > 90
+                                    p.card-text= movie.description.slice(0, 90) + "..."
+                                else
+                                    p.card-text= movie.description
+                                a.btn.btn-info(href="/detail?id="+movie.id) 상세보기

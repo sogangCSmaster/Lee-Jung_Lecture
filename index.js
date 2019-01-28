@@ -50,7 +50,9 @@ app.set("views", "./views");
 
 
 const admin = require('./routes/admin/index');
+const main = require('./routes/main');
 app.use(admin);
+app.use(main);
 
 
 
